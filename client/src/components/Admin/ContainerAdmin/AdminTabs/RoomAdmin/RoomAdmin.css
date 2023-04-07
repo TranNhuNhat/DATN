@@ -1,0 +1,94 @@
+.table-room {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+    
+  table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+  }
+    
+  th {
+    border: 1px solid black;
+  }
+    
+  td {
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .table {
+    margin-top: 60px;
+    width: inherit;
+  }
+
+  /* EditRoom */
+  .room {
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    border: 1px solid dodgerblue;
+    border-radius: 8px;
+    margin-top: 80px;
+  }
+
+  .room-title {
+    padding-left: 75px;
+    background-color: dodgerblue;
+    color: white;
+    margin-top: 4px;
+    height: 50px;
+  }
+
+  .room-input {
+    display: table-caption;
+  }
+
+  .room-code {
+    margin-left: 80px;
+    margin-top: 30px;
+    width: 230px;
+    height: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  
+
+  .room-roomtype {
+    margin-left: 80px;
+    margin-top: 30px;
+    width: 230px;
+    height: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  
+
+  .btn-edit {
+    margin-left: 160px;
+    margin-top: 30px;
+    width: 90px;
+    height: 35px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-edit:hover {
+    opacity: 0.8;
+  }
+
+  input[type=text]:focus {
+    border: 1px solid dodgerblue;
+  }
+

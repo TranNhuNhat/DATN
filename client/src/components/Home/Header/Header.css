@@ -1,0 +1,84 @@
+
+.header {
+    display: flex;
+}
+
+.app-logo {
+    width: 150px;
+}
+
+.title {
+    margin: auto;
+    color: #1976d2;
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    font-size: xxx-large;
+    font-style: italic;
+}
+
+.btn-login {
+    height: 35px;
+    margin-top: 50px;
+    margin-right: 20px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    width: 90px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    opacity: 0.8;
+}
+
+.icon-admin {
+    padding-bottom: 20px;
+    color: #1976d2;
+    padding-left: 220px;
+}
+
+.icon-close {
+    float: right;
+}
+
+.icon-close:hover {
+    color:  #1976d2;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#modal-modal-title {
+    color: #000;
+    font-size: 24px;
+    text-align: center;
+}
+
+.nameAdmin {
+    padding-right: 10px;
+}
+
+.input-login {
+    display: flex;
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+}
+
+.input-login--password {
+    display: flex;
+    padding-left: 30px;
+    padding-bottom: 40px;
+}
+.namePassword{
+    padding-right: 42px;
+}
+
+.btn-submit {
+    padding-left: 200px;
+}
+
+.btn-close {
+    padding-top: 15px;
+    float: right;
+}

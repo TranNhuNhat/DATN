@@ -1,0 +1,124 @@
+.table-homestay {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+  }
+    
+  table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+  }
+    
+  th {
+    border: 1px solid black ;
+  }
+    
+  td {
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .table {
+    margin-top: 60px;
+  }
+
+  .img-admin{
+    width: 100px;
+    padding-top: 3px;
+  }
+
+  .box-container {
+    display: grid;
+    margin-top: 20px;
+  }
+
+  .btn-addHomestay {
+    width: 180px;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .btn-addHomestay:hover {
+    opacity: 0.8;
+  }
+
+  p {
+    padding-left: 8px;
+    margin-top: 9px;
+  }
+
+  .icon-addH {
+    margin-top: 4px;
+  }
+
+  .btn-edit-homestay {
+    border: 1px solid lime;
+    background-color: lime;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    display: flex;
+    margin-left: 30px;
+    margin-bottom: 3px;
+  }
+
+  .edit-homestay {
+    margin-top: 5px;
+    padding-left: 2px;
+  }
+
+  .icon-editH {
+    height: 18px;
+  }
+
+  .btn-delete-homestay {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    display: flex;
+    margin-left: 30px;
+  }
+
+  .delete-homestay {
+    margin-top: 5px;
+    padding-left: 2px;
+  }
+
+  .icon-deleteH {
+    height: 18px;
+  }
+
+#homestay-code {
+
+}
+
+#homestay-name {
+  
+}
+
+#homestay-file {
+
+}
+
+#homestay-address {
+
+}
+
+#homestay-district {
+
+}
+
+#homestay-numroom {
+
+}

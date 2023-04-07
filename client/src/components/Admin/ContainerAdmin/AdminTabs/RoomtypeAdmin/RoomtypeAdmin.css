@@ -1,0 +1,27 @@
+.table-roomtype {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+    
+  table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+  }
+    
+  th {
+    border: 1px solid black;
+  }
+    
+  td {
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .table {
+    margin-top: 60px;
+    width: inherit;
+  }
