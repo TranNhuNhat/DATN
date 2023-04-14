@@ -6,6 +6,10 @@ import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
 
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const style = {
     position: 'absolute',
@@ -27,9 +31,6 @@ const RoomAdmin = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    // const [open1, setOpen1] = React.useState(false);
-    // const handleOpen1 = () => setOpen1(true);
-    // const handleClose1 = () => setOpen1(false);
 
     const navigate = useNavigate();
 
@@ -87,7 +88,13 @@ const RoomAdmin = () => {
 
     return (
         <div>
-            <button onClick={handleOpen}>Thêm mới phòng</button>
+            <button
+                className='btn-addRoom'
+                onClick={handleOpen}
+            >
+                <AddCircleIcon className='icon-addR' />
+                <p>Thêm mới phòng</p>
+            </button>
             {/* mo form them moi */}
             <Modal
                 open={open}
@@ -148,25 +155,25 @@ const RoomAdmin = () => {
                                     <td>{room.code}</td>
                                     <td>{room.roomtype}</td>
                                     <td>
-                                        <button className="btn-edit-room" onClick={() => navigate(`/admin/editRoom/${room._id}`)}>Sửa</button>
+                                        {/* <button className="btn-edit-room" onClick={() => navigate(`/admin/editRoom/${room._id}`)}>Sửa</button>
                                         <button className="btn-delete"
                                             onClick={() => handleDeleteRoom(room)}
                                         >
-                                            Xóa</button>
-                                        {/* <Button onClick={handleOpen1} variant='outlined'>Xóa</Button>
-                                        <Modal
-                                            open={open1}
-                                            onClose={handleClose1}
-                                            aria-labelledby="child-modal-title"
-                                            aria-describedby="child-modal-description"
-                                        >
-                                            <Box sx={style1}>
-                                                <h2 id="child-modal-title">Bạn có chắc chắc muốn xóa không ? </h2>
-                                                
-                                                <Button onClick={() => handleDeleteRoom(room)} variant='outlined'>Có</Button>
-                                                <Button onClick={handleClose1} variant='outlined'>Đóng</Button>
-                                            </Box>
-                                        </Modal> */}
+                                            Xóa</button> */}
+
+                                        <div className='display-btn'>
+                                            <button
+                                                className="btn-edit-room"
+                                                onClick={() => navigate(`/admin/editRoom/${room._id}`)}
+                                            ><EditIcon fontSize='small' className='icon-editR' />
+                                                <p className='edit-room'>Sửa</p></button>
+                                            <button
+                                                className="btn-delete-room"
+                                                onClick={() => handleDeleteRoom(room)}
+                                            ><DeleteIcon fontSize='small' className='icon-deleteR' />
+                                                <p className='delete-room'>Xóa</p>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
 

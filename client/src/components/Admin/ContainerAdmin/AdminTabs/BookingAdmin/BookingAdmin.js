@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BookingAdmin.css';
 
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 const BookingAdmin = () => {
   const navigate = useNavigate();
-
-  
-
 
   //get info all bookings
   const [bookings, setBookings] = useState([]);
@@ -32,7 +32,7 @@ const BookingAdmin = () => {
   const handleDeleteBooking = async (booking) => {
     setBookings(bookings.filter((b) => b._id !== booking._id));
     await axios.delete(`http://localhost:3001/api/bookings/${booking._id}`);
-}
+  }
 
   return (
     <div>
@@ -70,14 +70,17 @@ const BookingAdmin = () => {
                   <td>{booking.numadults}</td>
                   <td>{booking.numchildren}</td>
                   <td>
-                    <button className="btn-edit-booking"
-                        onClick={() => navigate(`/admin/editBooking/${booking._id}`)}
-                    >
-                      Sửa</button>
-                    <button 
-                        className="btn-delete"
-                        onClick={() => handleDeleteBooking(booking)}
-                    >Xóa</button>
+                    <button
+                      className="btn-edit-booking"
+                      onClick={() => navigate(`/admin/editBooking/${booking._id}`)}
+                    ><EditIcon fontSize='small' className='icon-editB' />
+                      <p className='edit-booking'>Sửa</p></button>
+                    <button
+                      className="btn-delete-booking"
+                      onClick={() => handleDeleteBooking(booking)}
+                    ><DeleteIcon fontSize='small' className='icon-deleteB' />
+                      <p className='delete-booking'>Xóa</p>
+                    </button>
                   </td>
                 </tr>
               )

@@ -71,7 +71,6 @@
   }
 
   
-
   .btn-edit {
     margin-left: 160px;
     margin-top: 30px;
@@ -90,5 +89,71 @@
 
   input[type=text]:focus {
     border: 1px solid dodgerblue;
+  }
+
+
+  .btn-addRoom {
+    width: 150px;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .btn-addRoom:hover {
+    opacity: 0.8;
+  }
+
+  .icon-addR {
+    margin-top: 4px;
+  }
+
+
+  .btn-edit-room {
+    border: 1px solid lime;
+    background-color: lime;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    display: flex;
+    margin-left: 5px;
+    margin-bottom: 3px;
+  }
+
+  .edit-room {
+    margin-top: 5px;
+    padding-left: 2px;
+  }
+
+  .icon-editR {
+    height: 18px;
+  }
+
+  .btn-delete-room {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    display: flex;
+    margin-left: 5px;
+  }
+
+  .delete-room {
+    margin-top: 5px;
+    padding-left: 2px;
+  }
+
+  .icon-deleteR {
+    height: 18px;
+  }
+
+  .display-btn {
+    display: inline-flex;
   }
 

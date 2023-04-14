@@ -4,6 +4,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const style = {
     position: 'absolute',
@@ -95,7 +99,13 @@ const RoomtypeAdmin = () => {
 
     return (
         <div>
-            <button onClick={handleOpen}>Thêm mới loại phòng</button>
+            <button
+                className='btn-addRoomtype'
+                onClick={handleOpen}
+            >
+                <AddCircleIcon className='icon-addRT' />
+                <p>Thêm mới loại phòng</p>
+            </button>
             {/* mo form them moi */}
             <Modal
                 open={open}
@@ -174,8 +184,8 @@ const RoomtypeAdmin = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {roomtypeads.map((roomtypead) => {
-                        return (
+                        {roomtypeads.map((roomtypead) => {
+                            return (
                                 <tr key={roomtypead._id}>
                                     <td>{roomtypead.code}</td>
                                     <td>{roomtypead.name}</td>
@@ -183,17 +193,23 @@ const RoomtypeAdmin = () => {
                                     <td>{roomtypead.roomprice}</td>
                                     <td>{roomtypead.roomdesc}</td>
                                     <td>
-                                        <button className="btn-edit-roomtype" 
-                                            onClick={() => navigate(`/admin/editRoomtype/${roomtypead._id}`)}
-                                        >Sửa</button>
-                                        <button 
-                                            className="btn-delete"
-                                            onClick={() => handleDeleteRoomtype(roomtypead)}
-                                        >Xóa</button>
+                                        <div className='display-btnRT'>
+                                            <button
+                                                className="btn-edit-roomtype"
+                                                onClick={() => navigate(`/admin/editRoomtype/${roomtypead._id}`)}
+                                            ><EditIcon fontSize='small' className='icon-editRT' />
+                                                <p className='edit-roomtype'>Sửa</p></button>
+                                            <button
+                                                className="btn-delete-roomtype"
+                                                onClick={() => handleDeleteRoomtype(roomtypead)}
+                                            ><DeleteIcon fontSize='small' className='icon-deleteRT' />
+                                                <p className='delete-roomtype'>Xóa</p>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
-                        )
-                    })}
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>

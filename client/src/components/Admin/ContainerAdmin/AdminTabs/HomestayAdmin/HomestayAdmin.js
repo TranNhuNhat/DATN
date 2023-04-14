@@ -90,14 +90,7 @@ const HomestayAdmin = () => {
 
 
   const handleAddHomestay = async () => {
-    // const formData = new FormData();
-    // formData.append("code", code);
-    // formData.append("name", name);
-    // formData.append("address", address);
-    // formData.append("district", district);
-    // formData.append("numroom", numroom);
-    // formData.append("rating", rating);
-    // formData.append("img", img);
+
 
     const config = {
       headers: {
@@ -129,11 +122,6 @@ const HomestayAdmin = () => {
     .catch(error => {
       console.log(error);
     })
-    
-    
-    // if (res.status === 200) {
-    //   console.log("data=>", res.data);
-    // };
     alert('Thêm mới homestay thành công');
     setCode('');
     setName('');

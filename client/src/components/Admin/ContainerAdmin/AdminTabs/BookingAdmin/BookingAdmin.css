@@ -25,3 +25,66 @@
     margin-top: 60px;
     width: inherit;
   }
+
+  .btn-addBooking {
+    width: 150px;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .btn-addBooking:hover {
+    opacity: 0.8;
+  }
+
+  .icon-addB {
+    margin-top: 4px;
+  }
+
+
+  .btn-edit-booking {
+    border: 1px solid lime;
+    background-color: lime;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+  }
+
+  .edit-booking {
+    margin-top: 5px;
+    padding-left: 2px;
+  }
+
+  .icon-editB {
+    height: 18px;
+  }
+
+  .btn-delete-booking {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .delete-booking {
+    margin-top: 5px;
+    padding-left: 2px;
+  }
+
+  .icon-deleteB {
+    height: 18px;
+  }
