@@ -27,11 +27,19 @@
   .img-admin{
     width: 100px;
     padding-top: 3px;
+    height: 70px;
+    border-radius: 5px;
   }
 
   .box-container {
-    display: grid;
+    display: flex;
     margin-top: 20px;
+  }
+
+  .input-left {
+    display: grid;
+    padding-left: 45px;
+    padding-right: 120px;
   }
 
   .btn-addHomestay {
@@ -99,26 +107,11 @@
     height: 18px;
   }
 
-#homestay-code {
+  .btn-submit{
+    margin-top: 40px;
+    margin-left: 23%;
+  }
 
-}
-
-#homestay-name {
-  
-}
-
-#homestay-file {
-
-}
-
-#homestay-address {
-
-}
-
-#homestay-district {
-
-}
-
-#homestay-numroom {
-
-}
+  label {
+    padding-right: 10px;
+  }

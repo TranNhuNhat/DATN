@@ -1,0 +1,91 @@
+.detail-title {
+    background-color: #0077cc;
+}
+.title-detail {
+    color: white;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.homestayRoom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.room-detail {
+    border: 0.5px solid dodgerblue;
+    border-radius: 5px;
+    padding-right: 40px;
+    margin-right: 60px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.img-room {
+    width: 200px;
+    border-radius: 4px;
+}
+
+.name {
+    text-align: center;
+}
+
+.phone {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.distance {
+    text-align: center;
+    margin-left: 36%;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.desc {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.address {
+    margin-bottom: 25px;
+}
+
+.icon-address {
+    color: #0077cc;
+    margin-left: 44%;
+}
+
+.district {
+    margin-left: 46%;
+    margin-bottom: 25px;
+}
+
+.Images {
+    margin-top: 25px;
+ display: flex;
+ justify-content: space-around;
+}
+
+.img {
+    width: 330px;
+    height: 180px;
+    border-radius: 5px;
+}
+
+
+.rating-box {
+    margin-left: 45%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

@@ -7,16 +7,18 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import moment from 'moment/moment';
+// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import './BookingAdmin.css';
 
 const EditBookingAdmin = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [booking, setBooking] = useState({
-        code: "",
+        name: "",
         roomtype: "",
         guestname: "",
         gender: "",
@@ -60,108 +62,168 @@ const EditBookingAdmin = () => {
 
     return (
         <div>
+            <div className='booking-header'>
+                    <h1 className='booking-title'>Cập nhật đơn đặt phòng</h1>
+            </div>
             <form className="booking">
-                <h1 className='booking-title'>Cập nhật đơn đặt phòng</h1>
                 <div className='booking-input'>
-                    <input
-                        className='booking-code'
-                        type="text"
-                        placeholder="Nhập mã homestay..."
-                        name="code"
-                        value={booking.code}
-                        onChange={handleChange}
-                    />
+                    <div className='editBooking-left'>
+                        <div>
+                            <label>Tên homestay</label>
+                            <input
+                                className='booking-name'
+                                type="text"
+                                placeholder="Nhập tên homestay..."
+                                name="name"
+                                value={booking.name}
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                    <input
-                        className='room-roomtype'
-                        type="text"
-                        placeholder="Nhập loại phòng..."
-                        name="roomtype"
-                        value={booking.roomtype}
-                        onChange={handleChange}
-                    />
+                        <div>
+                            <label>Loại phòng</label>
+                            <input
+                                className='booking-roomtype'
+                                type="text"
+                                placeholder="Nhập loại phòng..."
+                                name="roomtype"
+                                value={booking.roomtype}
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                    <input
-                        className='room-roomtype'
-                        type="text"
-                        placeholder="Nhập loại phòng..."
-                        name="guestname"
-                        value={booking.guestname}
-                        onChange={handleChange}
-                    />
+                        <div>
+                            <label>Phòng số</label>
+                            <input
+                                className='booking-roomNumbers'
+                                type="text"
+                                placeholder="Nhập phòng số..."
+                                name="guestname"
+                                value={booking.roomNumbers}
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                    <FormLabel id="demo-row-radio-buttons-group-label">
-                        Giới tính
-                    </FormLabel>
-                    <RadioGroup
-                        row
-                        aria-labelledby="demo-row-radio-buttons-group-label"
-                        name="row-radio-buttons-group"
-                        value={booking.gender}
-                        onChange={handleChange}
-                    >
-                        <FormControlLabel value="Nữ" control={<Radio />} label="Nữ" />
-                        <FormControlLabel value="Nam" control={<Radio />} label="Nam" />
-                        <FormControlLabel
-                            value="LGBT"
-                            control={<Radio />}
-                            label="LGBT"
-                        />
-                    </RadioGroup>
+                        <div>
+                            <label>Tên người đặt</label>
+                            <input
+                                className='booking-guestname'
+                                type="text"
+                                placeholder="Nhập tên người đặt..."
+                                name="guestname"
+                                value={booking.guestname}
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                    <input
-                        className='room-roomtype'
-                        type="text"
-                        placeholder="Nhập loại phòng..."
-                        name="bookingphone"
-                        value={booking.bookingphone}
-                        onChange={handleChange}
-                    />
+                        <div>
+                            <FormLabel id="demo-row-radio-buttons-group-label">
+                                Giới tính
+                            </FormLabel>
+                            <RadioGroup
+                                row
+                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                name="row-radio-buttons-group"
+                                value={booking.gender}
+                                onChange={handleChange}
+                            >
+                                <FormControlLabel value="Nữ" control={<Radio />} label="Nữ" />
+                                <FormControlLabel value="Nam" control={<Radio />} label="Nam" />
+                                <FormControlLabel
+                                    value="LGBT"
+                                    control={<Radio />}
+                                    label="LGBT"
+                                />
+                            </RadioGroup>
+                        </div>
 
-                    <input
-                        className='room-roomtype'
-                        type="email"
-                        placeholder="Nhập loại phòng..."
-                        name="email"
-                        value={booking.email}
-                        onChange={handleChange}
-                    />
+                        <div>
+                            <label>Số ĐT đặt phòng</label>
+                            <input
+                                className='booking-bookingphone'
+                                type="text"
+                                placeholder="Nhập số điện thoại đặt phòng..."
+                                name="bookingphone"
+                                value={booking.bookingphone}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
 
-                    <input
-                        label="Ngày đặt"
-                        onChange={handleChange}
-                        value={booking.bookingdate}
-                    />
 
-                    <input label="Ngày đến"
-                        onChange={handleChange}
-                        value={booking.checkindate} />
 
-                    <input
-                        label="Ngày trả phòng"
-                        onChange={handleChange}
-                        value={booking.checkoutdate}
-                    />
+                    <div className='editBooking-right'>
+                        <div>
+                            <label>Email</label>
+                            <input
+                                className='booking-email'
+                                type="email"
+                                placeholder="Nhập email..."
+                                name="email"
+                                value={booking.email}
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                    <input
-                        className='room-roomtype'
-                        type="text"
-                        placeholder="Nhập loại phòng..."
-                        name="roomtype"
-                        value={booking.numadults}
-                        onChange={handleChange}
-                    />
+                        <div>
+                            <label>Ngày đặt</label>
+                            <input
+                            className='booking-bookingdate'
+                                name='bookingdate'
+                                label="Ngày đặt"
+                                onChange={handleChange}
+                                value={booking.bookingdate}
+                            />
+                        </div>
 
-                    <input
-                        className='room-roomtype'
-                        type="text"
-                        placeholder="Nhập loại phòng..."
-                        name="roomtype"
-                        value={booking.numchildren}
-                        onChange={handleChange}
-                    />
+                        <div>
+                            <label>Ngày đến</label>
+                            <input 
+                                className='booking-checkindate'
+                                name='checkindate'
+                                label="Ngày đến"
+                                onChange={handleChange}
+                                value={booking.checkindate} 
+                            />
+                        </div>
+
+                        <div>
+                            <label>Ngày trả phòng</label>
+                            <input
+                                className='booking-checkoutdate'
+                                name='checkoutdate'
+                                label="Ngày trả phòng"
+                                onChange={handleChange}
+                                value={booking.checkoutdate}
+                            />
+                        </div>
+
+                        <div>
+                            <label>Số lượng người lớn</label>
+                            <input
+                                className='booking-numadults'
+                                type="text"
+                                placeholder="Nhập số lượng người lớn..."
+                                name="numadults"
+                                value={booking.numadults}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div>
+                            <label>Số lượng trẻ em</label>
+                            <input
+                                className='booking-numchildren'
+                                type="text"
+                                placeholder="Nhập số lượng trẻ em..."
+                                name="numchildren"
+                                value={booking.numchildren}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <button onClick={handleSubmit} className="btn-edit">
+                <button onClick={handleSubmit} className="btn-editBooking">
                     Cập nhật
                 </button>
             </form>

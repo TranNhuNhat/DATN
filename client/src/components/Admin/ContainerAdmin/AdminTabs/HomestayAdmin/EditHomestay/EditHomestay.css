@@ -1,0 +1,138 @@
+.homestay {
+    margin-top: 30px;
+  }
+
+  .homestay-title {
+    padding-left: 75px;
+    color: white;
+    margin-top: 4px;
+    height: 50px;
+    text-align: center;
+  }
+
+  .title-homestay {
+    background-color: dodgerblue;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  .homestay-input {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .homestay-code {
+    margin-left: 9px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  
+  .homestay-name {
+    margin-left: 8px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .homestay-address {
+    margin-left: 58px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .homestay-phone {
+    margin-left: 56px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    outline: none;
+  }
+
+  .homestay-file {
+    margin-left: 12px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .homestay-distance {
+    margin-left: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .homestay-desc {
+    margin-left: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .homestay-cheapestPrice {
+    margin-left: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .img-sub {
+    margin-left: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .box-rating {
+    margin-left: 5px;
+  }
+
+  .btn-editHomestay {
+    margin-left: 48%;
+    border: 1px solid dodgerblue;
+    border-radius: 3px;
+    color: white;
+    background-color: dodgerblue;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+  }
+
+  .btn-editHomestay:hover {
+    opacity: 0.7;
+  }
+
+  .btn-exit {
+    margin-left: 10px;
+    border: 1px solid dodgerblue;
+    border-radius: 3px;
+    color: dodgerblue;
+    background-color: white;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+  }
+
+  .btn-exit:hover {
+    opacity: 0.7;
+  }

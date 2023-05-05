@@ -17,17 +17,50 @@ const homestaySchema = new mongoose.Schema({
         type:String,
         required: true
       },
-      numroom: {
+      phone: {
+        type:String,
+        required: true
+      },
+      distance: {
         type:Number,
         required: true
       },
       rating: {
         type:Number,
-        required: true
+        required: true,
+        min: 0,
+        max: 5,
+      },
+      desc:{
+        type: String,
+        required:true
       },
       img: {
         type:String,
-        required: true
+       
+      },
+      img1: {
+        type:String,
+       
+      },
+      img2: {
+        type:String,
+       
+      },
+      img3: {
+        type:String,
+        
+      },
+      img4: {
+        type:String,
+       
+      },
+      cheapestPrice: {
+        type: String,
+        
+      },
+      rooms: {
+        type: [String]
       }
 })
 

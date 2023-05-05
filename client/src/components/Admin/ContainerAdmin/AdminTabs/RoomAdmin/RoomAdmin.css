@@ -28,51 +28,86 @@
 
   /* EditRoom */
   .room {
-    margin: auto;
-    width: 400px;
-    height: 300px;
-    border: 1px solid dodgerblue;
-    border-radius: 8px;
-    margin-top: 80px;
+    margin-top: 30px;
   }
 
   .room-title {
     padding-left: 75px;
-    background-color: dodgerblue;
     color: white;
     margin-top: 4px;
     height: 50px;
+    text-align: center;
+  }
+
+  .title-room {
+    background-color: dodgerblue;
+    padding-top: 15px;
+    padding-bottom: 10px;
   }
 
   .room-input {
-    display: table-caption;
+    display: flex;
+    justify-content: space-around;
   }
 
-  .room-code {
-    margin-left: 80px;
-    margin-top: 30px;
-    width: 230px;
-    height: 30px;
+  .room-acreage {
+    margin-left: 67px;
     border: 1px solid dodgerblue;
-    border-radius: 5px;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
     outline: none;
   }
 
   
-
   .room-roomtype {
-    margin-left: 80px;
-    margin-top: 30px;
-    width: 230px;
-    height: 30px;
+    margin-left: 55px;
     border: 1px solid dodgerblue;
-    border-radius: 5px;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .room-maxPeople {
+    margin-left: 21px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .room-roomprice {
+    margin-left: 56px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .room-roomNumbers {
+    margin-left: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
+    outline: none;
+  }
+
+  .room-imgRoom {
+    margin-left: 22px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 25px;
     outline: none;
   }
 
   
   .btn-edit {
-    margin-left: 160px;
+    margin-left: 48%;
     margin-top: 30px;
     width: 90px;
     height: 35px;
@@ -155,5 +190,10 @@
 
   .display-btn {
     display: inline-flex;
+  }
+
+  .img-room {
+    width: 100px;
+    height: 135px;
   }
 

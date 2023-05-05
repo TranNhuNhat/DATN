@@ -5,12 +5,14 @@ import axios from 'axios';
 import {Typography} from '@mui/material';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
-import ModalTabs from '../../ModalTabs/ModalTabs';
+// import ModalTabs from '../../ModalTabs/ModalTabs';
 import './DetailPage.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const DetailPage = (props) => {
     const [data,setData] = useState([]);
+    const navigate = useNavigate();
     const { district } = props; 
     console.log(district);
 
@@ -41,7 +43,9 @@ const DetailPage = (props) => {
                     return (
                             <div key={index} className='detail-listall'>
                                 <ul className='list-detail' key={index}>
-                                    <li>{item.name}</li>
+                                    <li
+                                        onClick={() => navigate(`/home/HomestayDetail/${item._id}`)}
+                                    >{item.name}</li>
                                     <li><img src={`data:image/png;base64,${item.img}`} alt="" className='image'/></li>
                                     <li>Mã homestay:{item.code}</li>
                                     <li>Địa chỉ:{item.address}</li>
@@ -58,7 +62,7 @@ const DetailPage = (props) => {
                                     <Rating name="read-only"  value={item.rating} readOnly ></Rating>
                                     </Box>
 
-                                    <ModalTabs homestayCode={item.code}/>
+                                    {/* <ModalTabs homestayCode={item.code}/> */}
                             </div>
                     )
                 })

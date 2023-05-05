@@ -1,6 +1,6 @@
 const Roomtype = require("../models/Roomtype");
 
-//get all roomtypes
+//get all rooms
 const roomtype_all  = async (req,res)=> {
     try {
         const roomtypes = await Roomtype.find();
@@ -10,7 +10,7 @@ const roomtype_all  = async (req,res)=> {
     }
 };
 
-//single roomtype
+//single room
 const roomtype_details = async (req,res)=> {
     try {
         const roomtype = await Roomtype.findById(req.params.roomtypeId);
@@ -22,15 +22,12 @@ const roomtype_details = async (req,res)=> {
 
 
 
-//add new roomtype
+//add new room
 const roomtype_create = async (req,res)=> {
     
     const roomtype = new Roomtype({
         code: req.body.code,
-        name: req.body.name,
         roomtype: req.body.roomtype,
-        roomprice: req.body.roomprice,
-        roomdesc: req.body.roomdesc,
     });
     try {
         const savedRoomtype = await roomtype.save();
@@ -40,22 +37,19 @@ const roomtype_create = async (req,res)=> {
     }
 };
 
-//update roomtype
+//update room
 const roomtype_update = async (req,res)=> {
     try {
         const roomtype = {
             code: req.body.code,
-            name: req.body.name,
             roomtype: req.body.roomtype,
-            roomprice: req.body.roomprice,
-            roomdesc: req.body.roomdesc,
         };
 
         const updatedRoomtype = await Roomtype.findByIdAndUpdate(
             { _id: req.params.roomtypeId },
             roomtype
         );
-        res.json(updatedRoomtype)
+        res.json(updatedRoomtype);
     } catch (error) {
         res.json({message: error})
     }
@@ -63,7 +57,7 @@ const roomtype_update = async (req,res)=> {
 
 
 
-//delete roomtype
+//delete room
 const roomtype_delete = async (req,res)=> {
     try {
         const removeRoomtype = await Roomtype.findByIdAndDelete(req.params.roomtypeId);

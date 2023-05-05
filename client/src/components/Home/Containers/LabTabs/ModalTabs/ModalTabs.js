@@ -1,13 +1,9 @@
 import React from "react";
 import { Button, Typography, Modal } from "@mui/material";
 import Box from "@mui/material/Box";
-import CloseIcon from "@mui/icons-material/Close";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
+import CloseIcon from "@mui/icons-material/Close"
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
-
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -20,6 +16,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import axios from "axios";
 import './ModalTabs.css';
+import dayjs from "dayjs";
 
 
 
@@ -38,15 +35,31 @@ const style = {
 };
 
 const ModalTabs = (props) => {
+  const {roomId} = props;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true)
   }
   const handleSubmit = async () => {
-    const response = await axios.post("http://localhost:3001/api/bookings", {
-      code: homestayCode,
-      roomtype: room,
-      guestname: name,
+    console.log({
+      name: homestayName,
+      roomtype: roomType,
+      roomNumbers:roomNumber,
+      guestname: guestname,
+      gender: gender,
+      bookingphone: phoneNumber,
+      email: email,
+      bookingdate: bookingdate,
+      checkindate: checkindate,
+      checkoutdate: checkoutdate,
+      numadults: numadults,
+      numchildren: numchildren,
+    });
+    const response = await axios.post(`http://localhost:3001/api/bookings/${roomId}`, {
+      name: homestayName,
+      roomtype: roomType,
+      roomNumbers:roomNumber,
+      guestname: guestname,
       gender: gender,
       bookingphone: phoneNumber,
       email: email,
@@ -59,16 +72,20 @@ const ModalTabs = (props) => {
     if (response.status === 200) {
       console.log("data=>", response.data);
     }
+    alert('Gửi yêu cầu đặt phòng thành công');
   };
 
-  
 
   const handleClose = () => setOpen(false);
-  const { homestayCode } = props;
 
-  const [room, setRoom] = React.useState("");
+
+  const { homestayName } = props;
+  const { roomType } = props;
+  const { roomNumber } = props;
+  // const [roomId,setRoomId] = React.useState(undefined);
+  // const [room, setRoom] = React.useState("");
   const [gender, setGender] = React.useState("");
-  const [name, setName] = React.useState("");
+  const [guestname, setGuestname] = React.useState("");
   const [phoneNumber, setPhoneNumber] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [bookingdate, setBookingdate] = React.useState("");
@@ -77,16 +94,14 @@ const ModalTabs = (props) => {
   const [numadults, setNumadults] = React.useState("");
   const [numchildren, setNumchildren] = React.useState("");
 
-  const handleChangeRoom = (event) => {
-    setRoom(event.target.value);
-  };
+  
 
   const handleChangeGender = (event) => {
     setGender(event.target.value);
   };
 
-  const handleChangeName = (event) => {
-    setName(event.target.value);
+  const handleChangeGuestname = (event) => {
+    setGuestname(event.target.value);
   };
 
   const handleChangePhoneNumber = (event) => {
@@ -117,9 +132,11 @@ const ModalTabs = (props) => {
     setNumchildren(event.target.value);
   };
 
+  const today = dayjs();
+
   return (
     <div>
-      <button  onClick={handleOpen} className="btn-booking">
+      <button onClick={handleOpen} className="btn-booking">
         Đặt phòng
       </button>
 
@@ -138,23 +155,29 @@ const ModalTabs = (props) => {
             id="outlined-basic"
             label="Mã homestay"
             variant="outlined"
-            defaultValue={homestayCode}
+            defaultValue={homestayName}
+            disabled={true}
+          />
+
+          <TextField
+            id="outlined-basic"
+            label="Tên phòng"
+            variant="outlined"
+            defaultValue={roomType}
+
+            disabled={true}
+          />
+
+          <TextField
+            id="outlined-basic"
+            label="Phòng số"
+            variant="outlined"
+            defaultValue={roomNumber}
             disabled={true}
           />
 
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Mã phòng</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={room}
-              label="Mã phòng"
-              onChange={handleChangeRoom}
-            >
-              <MenuItem value={"Phòng đơn"}>Phòng đơn</MenuItem>
-              <MenuItem value={"Phòng đôi"}>Phòng đôi </MenuItem>
-              <MenuItem value={"Phòng cho gia đình "}>Phòng cho gia đình</MenuItem>
-            </Select>
+
 
             <FormLabel id="demo-row-radio-buttons-group-label">
               Giới tính
@@ -178,8 +201,8 @@ const ModalTabs = (props) => {
             id="outlined-basic"
             label="Tên người đặt"
             variant="outlined"
-            onChange={handleChangeName}
-            value={name}
+            onChange={handleChangeGuestname}
+            value={guestname}
           />
           <TextField
             id="outlined-basic"
@@ -201,14 +224,15 @@ const ModalTabs = (props) => {
               <DatePicker
                 label="Ngày đặt"
                 onChange={handleChangeBookingdate}
+                // defaultValue={today}
                 value={bookingdate}
               />
             </DemoContainer>
 
             <DemoContainer components={["DatePicker"]}>
-              <DatePicker label="Ngày đến" 
-              onChange={handleChangeCheckindate}
-              value={checkindate} />
+              <DatePicker label="Ngày đến"
+                onChange={handleChangeCheckindate}
+                value={checkindate} />
             </DemoContainer>
 
             <DemoContainer components={["DatePicker"]}>
@@ -235,13 +259,13 @@ const ModalTabs = (props) => {
             onChange={handleChangeNumchildren}
           />
 
-      
+
           <Button variant="outlined" onClick={handleSubmit}>
             Gửi yêu cầu đặt phòng
           </Button>
 
 
-          {/* <ChildModal /> */}
+
         </Box>
       </Modal>
     </div>

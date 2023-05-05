@@ -7,7 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import HomestayAdmin from './HomestayAdmin/HomestayAdmin';
 import BookingAdmin from './BookingAdmin/BookingAdmin';
 import RoomAdmin from './RoomAdmin/RoomAdmin';
-import RoomtypeAdmin from './RoomtypeAdmin/RoomtypeAdmin';
+
 
 
 
@@ -29,7 +29,7 @@ const AdminTabs = () => {
             <Tab label="Homestay" value="1" />
             <Tab label="Đơn đặt phòng" value="2" />
             <Tab label="Phòng" value="3" />
-            <Tab label="Loại phòng" value="4" />
+            
           </TabList>
         </Box>
         <TabPanel value="1">
@@ -41,9 +41,7 @@ const AdminTabs = () => {
         <TabPanel value="3">
           <RoomAdmin/>
         </TabPanel>
-        <TabPanel value="4">
-          <RoomtypeAdmin/>
-        </TabPanel>
+        
       </TabContext>
     </Box>
     </div>

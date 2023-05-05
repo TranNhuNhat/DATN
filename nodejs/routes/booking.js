@@ -3,11 +3,14 @@ const bookingController = require('../controllers/bookingController');
 
 
 
-router.post("/",bookingController.booking_create);
+router.post("/:roomId",bookingController.booking_create);
 router.get("/",bookingController.booking_all);
-router.get("/code",bookingController.booking_detailscode);
+router.get("/name",bookingController.booking_name);
+router.get("/approved",bookingController.booking_approved);
+router.get("/notapproved",bookingController.booking_notapproved);
 router.get("/:bookingId",bookingController.booking_details);
 router.put("/:bookingId",bookingController.booking_update);
+router.put("/updateApproved/:bookingId",bookingController.booking_updateApproved);
 router.delete("/:bookingId",bookingController.booking_delete);
 
 

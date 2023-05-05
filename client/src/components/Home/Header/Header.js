@@ -14,7 +14,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 500,
-    height: 420,
+    height: 460,
     bgcolor: 'background.paper',
     border: '1px solid #1976d2',
     borderRadius: '5px', 
@@ -109,7 +109,7 @@ const Header = () => {
             </div>
           </div>
           
-            <div className='btn-submit'>
+            <div className='btn-login-submit'>
                 <Button 
                 variant="contained" 
                 size='medium'

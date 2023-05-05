@@ -88,3 +88,123 @@
   .icon-deleteB {
     height: 18px;
   }
+
+
+  /* edit booking */
+  .booking-header {
+    background-color: dodgerblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+  .booking-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: whitesmoke;
+  }
+
+  .booking-input {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .booking-name {
+    margin-left: 21px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-roomtype {
+    margin-left: 39px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-roomNumbers {
+    margin-left: 52px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-guestname {
+    margin-left: 21px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+  .booking-bookingphone {
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  .booking-email {
+    margin-left: 97px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-bookingdate {
+    margin-left: 71px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-checkindate {
+    margin-left: 67px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-checkoutdate {
+    margin-left: 24px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-numadults {
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .booking-numchildren {
+    margin-left: 22px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    height: 30px;
+    margin-bottom: 15px;
+  }
+
+  .btn-editBooking {
+    margin-left: 48%;
+    border: 1px solid dodgerblue;
+    border-radius: 3px;
+    width: 90px;
+    height: 30px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-editBooking:hover {
+    opacity: 0.7;
+  }

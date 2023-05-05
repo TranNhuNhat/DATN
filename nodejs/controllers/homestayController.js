@@ -1,4 +1,5 @@
 const Homestay = require("../models/Homestay");
+const Room = require("../models/Room");
 
 //get all homestay
 const homestay_all  = async (req,res)=> {
@@ -21,40 +22,26 @@ const homestay_details = async (req,res)=> {
 };
 
 
-//get  homestay by name
+//get  homestay by district
 const homestay_district  = async (req,res)=> {
     try {
         console.log( req.query.district );
         const homestays = await Homestay.find({ district: req.query.district});
-        res.json(homestays)
+        res.status(200).json(homestays)
     } catch (error) {
         res.status(500).send(error)
     }
 };
 
 
+
 //add new homestay
 const homestay_create = async (req, res) => {
     console.log(req.body);
 
-    // const fileBuffer = fs.readFileSync(req.file.path).toString('base64');
-    // // read the img file from tmp in-memory location
-    // var newImg = fs.readFileSync(req.file.path);
-    // // encode the file as a base64 string.
-    // var encImg = newImg.toString('base64');
-
-    const homestay = new Homestay({
-        code: req.body.code,
-        name: req.body.name,
-        address: req.body.address,
-        district: req.body.district,
-        numroom: req.body.numroom,
-        rating: req.body.rating,
-        img: req.body.img,
-    });
+    const homestay = new Homestay(req.body);
     
-    try {
-        
+    try {    
         const savedHomestay = await homestay.save();
         res.send(savedHomestay);
     } catch (error) {
@@ -64,22 +51,31 @@ const homestay_create = async (req, res) => {
 
 //update homestay
 const homestay_update = async (req,res)=> {
+    console.log(req.body);
+    console.log(req.params.homestayId);
     try {
         const homestay = {
             code: req.body.code,
             name: req.body.name,
             address: req.body.address,
             district: req.body.district,
-            numroom: req.body.numroom,
+            phone: req.body.phone,
             rating: req.body.rating,
-            image: req.body.img,
+            distance: req.body.distance,
+            desc: req.body.desc,
+            cheapestPrice:req.body.cheapestPrice,
+            img: req.body.img,
+            img1: req.body.img1,
+            img2: req.body.img2,
+            img3: req.body.img3,
+            img4: req.body.img4,
         };
 
         const updatedHomestay = await Homestay.findByIdAndUpdate(
             { _id: req.params.homestayId },
             homestay
         );
-        res.json(updatedHomestay)
+        res.status(200).json(updatedHomestay)
     } catch (error) {
         res.json({message: error})
     }
@@ -95,6 +91,22 @@ const homestay_delete = async (req,res)=> {
     }
 };
 
+//get homestayRooms
+const homestay_rooms  = async (req,res,next)=> {
+    try {
+        const homestay = await Homestay.findById(req.params.homestayId);
+        const list = await Promise.all(
+            homestay.rooms.map((room) => {
+                return Room.findById(room)
+            })
+        );
+        res.status(200).json(list)
+    } catch (error) {
+        next(error)
+    }
+};
+
+
 module.exports = {
     homestay_all,
     homestay_details,
@@ -102,4 +114,5 @@ module.exports = {
     homestay_update,
     homestay_delete,
     homestay_district,
+    homestay_rooms,
 }

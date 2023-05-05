@@ -1,5 +1,6 @@
 .image {
     width: 200px;
+    height: 125px;
 }
 
 ul {
@@ -16,9 +17,6 @@ ul {
     cursor: pointer;
 }
 
-.list-home:hover {
-    opacity: 0.7;
-}
 
 .box-rating {
     padding-left: 36px;
@@ -39,4 +37,31 @@ li {
     padding-right: 40px;
     margin-right: 60px;
     margin-bottom: 30px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+#demo-simple-select {
+    max-height: 50px;
+    width: 150px;
+}
+
+.btn-search {
+    height: 35px;
+    margin-top: 25px;
+    margin-right: 20px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    width: 90px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    opacity: 0.8;
 }
