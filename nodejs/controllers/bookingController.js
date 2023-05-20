@@ -1,6 +1,7 @@
 const Booking = require("../models/Booking");
 const Room = require("../models/Room");
 
+
 //get all bookings
 const booking_all  = async (req,res)=> {
     try {
@@ -21,11 +22,18 @@ const booking_details = async (req,res)=> {
     }
 };
 
-//get  booking by name
-const booking_name = async (req,res)=> {
+
+// get booking by date
+const booking_date = async (req,res)=> {
     try {
-        console.log( req.query.name );
-        const booking = await Booking.find({ code: req.query.name});
+        console.log( req.query.checkindate );
+        console.log( req.query.checkoutdate );
+        console.log( req.query.roomtype );
+        const booking = await Booking.find({ 
+            roomtype: req.query.roomtype,
+            checkindate: req.query.checkindate,
+            checkoutdate: req.query.checkoutdate
+        });
         res.status(200).json(booking)
     } catch (error) {
         res.status(500).send(error)
@@ -54,11 +62,86 @@ const booking_approved = async (req,res)=> {
 };
 
 
+const booking_approved_search = async (req,res)=> {
+    try {
+        const booking = await Booking.find({
+             approved: "true",
+             "$or":[
+                {
+                    name: { $regex: req.params.key}
+                },
+                {
+                    roomtype: { $regex: req.params.key}
+                },
+
+                {
+                    guestname: { $regex: req.params.key}
+                },
+
+                {
+                    gender: { $regex: req.params.key}
+                },
+            ]
+            });
+        res.status(200).json(booking)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+};
+
+
+
+const booking_notapproved_search = async (req,res)=> {
+    try {
+        const booking = await Booking.find({
+             approved: "false",
+             "$or":[
+                {
+                    name: { $regex: req.params.key}
+                },
+                {
+                    roomtype: { $regex: req.params.key}
+                },
+
+                {
+                    guestname: { $regex: req.params.key}
+                },
+
+                {
+                    gender: { $regex: req.params.key}
+                },
+            ]
+            });
+        res.status(200).json(booking)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+};
 //add new booking
 const booking_create = async (req,res,next)=> {
     const roomId = req.params.roomId;
     console.log(req.body);
-    const booking = new Booking(req.body);
+    const checkinDate =new Date(req.body.checkindate);
+    const checkoutDate =new Date(req.body.checkoutdate) ;
+    checkinDate.setDate(checkinDate.getDate() + 1);
+    checkoutDate.setDate(checkoutDate.getDate() + 1);
+    console.log(checkinDate);
+    console.log(checkoutDate);
+    // const booking = new Booking(req.body);
+    const booking = new Booking({
+        name : req.body.name,
+        roomtype : req.body.roomtype,
+        roomNumbers : req.body.roomNumbers,
+        guestname : req.body.guestname,
+        gender : req.body.gender,
+        bookingphone : req.body.bookingphone,
+        email : req.body.email,
+        bookingdate : req.body.bookingdate,
+        checkindate : checkinDate,
+        checkoutdate : checkoutDate,
+        numadults : req.body.numadults,
+        numchildren : req.body.numchildren,
+    })
     try {
         const savedBooking = await booking.save();
         try {
@@ -76,31 +159,32 @@ const booking_create = async (req,res,next)=> {
 
 //update booking
 const booking_update = async (req,res)=> {
+    console.log(req.body);
+    const checkinDate =new Date(req.body.checkindate);
+    const checkoutDate =new Date(req.body.checkoutdate) ;
+    checkinDate.setDate(checkinDate.getDate() + 1);
+    checkoutDate.setDate(checkoutDate.getDate() + 1);
+    console.log(checkinDate);
+    console.log(checkoutDate);
     try {
-        // const booking = {
-        //     name: req.body.name,
-        //     roomtype: req.body.roomtype,
-        //     roomNumbers: req.body.roomNumbers,
-        //     guestname: req.body.guestname,
-        //     gender: req.body.gender,
-        //     bookingphone: req.body.bookingphone,
-        //     email: req.body.email,
-        //     bookingdate: req.body.bookingdate,
-        //     checkindate: req.body.checkindate,
-        //     checkoutdate: req.body.checkoutdate,
-        //     numadults: req.body.numadults,
-        //     numchidren: req.body.numchidren,
-        // };
-
-        // const updatedBooking = await Booking.findByIdAndUpdate(
-        //     { _id: req.params.bookingId },
-        //     booking
-        // );
-
         const updatedBooking = await Booking.findByIdAndUpdate(
             { _id: req.params.bookingId },
-            {$set:req.body},
-            {new:true}
+            // {$set:req.body},
+            {
+                name : req.body.name,
+                roomtype : req.body.roomtype,
+                roomNumbers : req.body.roomNumbers,
+                guestname : req.body.guestname,
+                gender : req.body.gender,
+                bookingphone : req.body.bookingphone,
+                email : req.body.email,
+                bookingdate : req.body.bookingdate,
+                checkindate : checkinDate,
+                checkoutdate : checkoutDate,
+                numadults : req.body.numadults,
+                numchildren : req.body.numchildren,
+            },
+            // {new:true}
         );
 
         res.status(200).json(updatedBooking)
@@ -149,11 +233,13 @@ const booking_delete = async (req,res,next)=> {
 module.exports = {
     booking_all,
     booking_details,
-    booking_name,
     booking_create,
     booking_update,
     booking_delete,
     booking_approved,
     booking_notapproved,
-    booking_updateApproved
+    booking_updateApproved,
+    booking_date,
+    booking_approved_search,
+    booking_notapproved_search,
 }

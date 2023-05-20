@@ -1,5 +1,5 @@
 .btn-booking {
-    margin-left: 40%;
+    margin-left: 45%;
     margin-bottom: 10px;
     width: 80px;
     height: 30px;
@@ -14,3 +14,36 @@
     opacity: 0.6;
 }
 
+.checkindate {
+    display: grid;
+}
+
+.checkoutdate {
+    display: grid;
+}
+
+.btn-send-booking {
+    display: flex;
+    background-color: #1e90ff;
+    border: 1px solid #1e90ff;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-left: 145px;
+}
+
+.send {
+    padding-left: 8px;
+    margin-top: 11px;
+    margin-right: 5px;
+    color: #fff;
+}
+
+.icon-send {
+    margin-top: 7px;
+    color: #fff;
+    padding-right: 8px;
+}
+
+#modal-modal-title {
+    margin-bottom: 10px;
+}

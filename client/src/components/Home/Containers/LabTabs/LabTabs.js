@@ -6,6 +6,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import HomePage from './Panel/HomePage/HomePage';
 import DetailPage from './Panel/DetailPage/DetailPage';
+import District from '../District/District';
 
 const LabTabs = () => {
     const [value, setValue] = React.useState('1');
@@ -20,7 +21,8 @@ const LabTabs = () => {
         <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <TabList onChange={handleChange} aria-label="lab API tabs example" variant="scrollable"
+        scrollButtons="auto">
               <Tab label="Trang chủ " value="1" />
               <Tab label="Quận Ba Đình" value="2" />
               <Tab label="Quận Hoàn Kiếm" value="3" />
@@ -31,10 +33,12 @@ const LabTabs = () => {
               <Tab label="Quận Hà Đông" value="8" />
               <Tab label="Quận Cầu Giấy" value="9" />
               <Tab label="Quận Long Biên" value="10" />
+              <Tab label="Quận Hoàng Mai" value="11" />
             </TabList>
           </Box>
           <TabPanel value="1">
               <HomePage/>
+              <District/>
           </TabPanel>
           <TabPanel value="2">
               <DetailPage district="Ba Đình"/>
@@ -62,6 +66,9 @@ const LabTabs = () => {
           </TabPanel>
           <TabPanel value="10">
               <DetailPage district="Long Biên"/>
+          </TabPanel>
+          <TabPanel value="11">
+              <DetailPage district="Hoàng Mai"/>
           </TabPanel>
         </TabContext>
       </Box>

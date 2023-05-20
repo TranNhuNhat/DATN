@@ -49,3 +49,9 @@ li {
 .text {
     padding-left: 28px;
 }
+
+.sort-filter-district {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}

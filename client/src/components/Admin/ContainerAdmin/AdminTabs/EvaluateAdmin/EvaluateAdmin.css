@@ -1,0 +1,58 @@
+.form-search-evaluate {
+    margin-left: 35%;
+    height: 35px;
+    width: 400px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .btn-search-evaluate {
+    margin-left: 15px;
+    height: 30px;
+    border: 1px solid deeppink;
+    background-color: #fff;
+    color: deeppink;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: flex;
+  }
+
+  .btn-reset-evaluateNA {
+    height: 30px;
+    border: 1px solid lawngreen;
+    background-color: #fff;
+    color: lawngreen;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+  }
+
+  .btn-reset-evaluateA {
+    height: 30px;
+    border: 1px solid lawngreen;
+    background-color: #fff;
+    color: lawngreen;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+  }
+
+  .evaluate-title {
+    text-align: center;
+    color: cornflowerblue;
+  }
+
+  .btn-search-choose-eva {
+    margin-left: 15px;
+    height: 30px;
+    border: 1px solid lawngreen;
+    background-color: #fff;
+    color: lawngreen;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: flex;
+    padding-top: 5px;
+  }

@@ -1,10 +1,22 @@
 const Homestay = require("../models/Homestay");
 const Room = require("../models/Room");
+const Evaluate = require("../models/Evaluate");
+const Booking = require("../models/Booking");
 
 //get all homestay
 const homestay_all  = async (req,res)=> {
     try {
         const homestays = await Homestay.find();
+        res.json(homestays)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+};
+
+//get some homestays
+const homestay_some  = async (req,res)=> {
+    try {
+        const homestays = await Homestay.find({}).limit(8);
         res.json(homestays)
     } catch (error) {
         res.status(500).send(error)
@@ -107,6 +119,67 @@ const homestay_rooms  = async (req,res,next)=> {
 };
 
 
+
+
+
+//get homestaEvaluates
+const homestay_evaluates  = async (req,res,next)=> {
+    try {
+        const homestay = await Homestay.findById(req.params.homestayId);
+        const list = await Promise.all(
+            homestay.evaluates.map((evaluate) => {
+                return Evaluate.findById(evaluate)
+            })
+        );
+        res.status(200).json(list)
+    } catch (error) {
+        next(error)
+    }
+};
+
+//get homestaEvaluates approved true
+const homestay_evaluates_approved  = async (req,res,next)=> {
+    try {
+        const homestay = await Homestay.findById(req.params.homestayId);
+        const list = await Promise.all(
+            homestay.evaluates.map((evaluate) => {
+                return Evaluate.findById(evaluate)
+            })
+        );
+        const abcd = list.filter((evaluate) => {
+            console.log(evaluate);
+            return `${evaluate.approved}` === 'true' 
+        }) 
+        console.log(abcd);
+        res.status(200).json(abcd)
+    } catch (error) {
+        next(error)
+    }
+};
+
+// search homestay
+const homestay_searchs  = async (req,res,next)=> {
+    try {
+        let result = await Homestay.find({
+            "$or":[
+                {
+                    code: { $regex: req.params.key}
+                },
+                {
+                    name: { $regex: req.params.key}
+                },
+                {
+                    address: { $regex: req.params.key}
+                },
+            ]
+        });
+        res.status(200).json(result);
+    } catch (error) {
+        next(error)
+    }
+};
+
+
 module.exports = {
     homestay_all,
     homestay_details,
@@ -115,4 +188,8 @@ module.exports = {
     homestay_delete,
     homestay_district,
     homestay_rooms,
+    homestay_evaluates,
+    homestay_searchs,
+    homestay_some,
+    homestay_evaluates_approved,
 }

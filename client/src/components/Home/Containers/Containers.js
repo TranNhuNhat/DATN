@@ -9,4 +9,4 @@ const Containers = () => {
   )
 }
 
-export default Containers
+export default Containers;

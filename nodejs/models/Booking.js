@@ -31,24 +31,18 @@ const bookingSchema = new mongoose.Schema({
       },
       bookingdate: {
         type:Date,
-        // required: true,
-        // default: Date.now,
       },
       checkindate: {
         type:Date,
-        // required: true
       },
       checkoutdate: {
         type:Date,
-        // required: true
       },
       numadults: {
         type:Number,
-        // required: true
       },
       numchildren: {
         type:Number,
-        // required: true
       },
       approved : {
         type: Boolean,

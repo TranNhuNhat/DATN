@@ -34,7 +34,19 @@ const roomSchema = new mongoose.Schema({
   },
   bookings: {
     type:[String]
-  }
+  },
+  img1: {
+    type: String, 
+  },
+  img2: {
+    type: String, 
+  },
+  img3: {
+    type: String,
+  },
+  img4: {
+    type: String,  
+  },
 })
 
 module.exports = mongoose.model("Room", roomSchema);

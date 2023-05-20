@@ -1,8 +1,8 @@
 .table-room {
     width: 100%;
-    height: 500px;
     display: flex;
     justify-content: center;
+    margin-bottom: 80px;
     /* align-items: center; */
   }
     
@@ -197,3 +197,121 @@
     height: 135px;
   }
 
+  .form-room {
+    margin-left: 40%;
+    height: 35px;
+    width: 300px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+  }
+
+  .btn-search-room {
+    margin-left: 15px;
+    height: 30px;
+    border: 1px solid deeppink;
+    background-color: #fff;
+    color: deeppink;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: flex;
+  }
+
+  .btn-reset-room {
+    height: 30px;
+    border: 1px solid lawngreen;
+    background-color: #fff;
+    color: lawngreen;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+  }
+
+  select {
+    width: 250px;
+  }
+
+  .submit-btn {
+    margin-left: 23%;
+    height: 35px;
+    width: 80px;
+    border: 1px solid #1e90ff;
+    background-color: #1e90ff;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  .dialog-room {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .group-btn {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .room-title-search {
+    text-align: center;
+    color: cornflowerblue;
+  }
+
+  .btn-search-choose-room {
+    margin-left: 15px;
+    height: 30px;
+    border: 1px solid lawngreen;
+    background-color: #fff;
+    color: lawngreen;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: flex;
+    padding-top: 5px;
+  }
+
+  /* modal add room */
+
+  .add-info {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .add-left {
+    display: grid;
+  }
+
+  .add-right {
+    display: block;
+  }
+
+  .room-text {
+    margin-bottom: 10px;
+    margin-left: 8px;
+  }
+
+  .room-conven {
+    margin-bottom: 10px;
+  }
+
+  .room-imgroom {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .select-display {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  .modal-select {
+    height: 30px;
+    border: 1px solid dodgerblue;
+    border-radius: 6px;
+    color: dodgerblue;
+    width: 250px;
+  }
+
+  .li-roomconven {
+    list-style: none;
+  }

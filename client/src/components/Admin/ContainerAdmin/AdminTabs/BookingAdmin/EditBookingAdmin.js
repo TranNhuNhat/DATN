@@ -7,11 +7,12 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import moment from 'moment/moment';
-// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
 import './BookingAdmin.css';
 
 const EditBookingAdmin = () => {
@@ -46,16 +47,32 @@ const EditBookingAdmin = () => {
     }, []);
 
     const handleChange = (e) => {
-        const bookingClone = { ...booking };
+        let bookingClone = { ...booking };
         bookingClone[e.target.name] = e.target.value;
         setBooking(bookingClone);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.put(`http://localhost:3001/api/bookings/${id}`, booking);
+        const response = await axios.put(`http://localhost:3001/api/bookings/${id}`, booking);
         console.log(booking);
+        if(response.status === 200){
+            console.log(response.data);
+            alert("Cập nhật thông tin đơn đặt thành công");
+        }
         return navigate("/admin");
+    };
+
+    const handleChangeCheckindate = (date) => {
+        let bookingClone = { ...booking };
+        bookingClone['checkindate'] = date;
+        setBooking(bookingClone);
+    };
+
+    const handleChangeCheckoutdate = (date) => {
+        let bookingClone = { ...booking };
+        bookingClone['checkoutdate'] = date;
+        setBooking(bookingClone);
     };
 
 
@@ -63,7 +80,7 @@ const EditBookingAdmin = () => {
     return (
         <div>
             <div className='booking-header'>
-                    <h1 className='booking-title'>Cập nhật đơn đặt phòng</h1>
+                <h1 className='booking-title'>Cập nhật đơn đặt phòng</h1>
             </div>
             <form className="booking">
                 <div className='booking-input'>
@@ -168,22 +185,38 @@ const EditBookingAdmin = () => {
                         <div>
                             <label>Ngày đặt</label>
                             <input
-                            className='booking-bookingdate'
-                                name='bookingdate'
+                                className='booking-bookingdate'
                                 label="Ngày đặt"
                                 onChange={handleChange}
                                 value={booking.bookingdate}
                             />
                         </div>
 
-                        <div>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DemoContainer components={["DatePicker"]}>
+                                <DatePicker
+                                    name="checkindate"
+                                    label="Ngày đến"  
+                                    onChange={handleChangeCheckindate}
+                                />
+                            </DemoContainer>
+
+                            <DemoContainer components={["DatePicker"]}>
+                                <DatePicker
+                                    name="checkoutdate"
+                                    label="Ngày trả phòng"
+                                    onChange={handleChangeCheckoutdate}
+                                />
+                            </DemoContainer>
+                        </LocalizationProvider>
+
+                        <div className='input-checkin'>
                             <label>Ngày đến</label>
-                            <input 
+                            <input
                                 className='booking-checkindate'
-                                name='checkindate'
                                 label="Ngày đến"
                                 onChange={handleChange}
-                                value={booking.checkindate} 
+                                value={booking.checkindate}
                             />
                         </div>
 

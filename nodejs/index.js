@@ -38,9 +38,9 @@ app.get('/',(req,res)=> {
 //import routes
 const homestayRoutes = require("./routes/homestay");
 const roomRoutes = require("./routes/room");
-const roomtypeRoutes = require("./routes/roomtype");
 const bookingRoutes = require("./routes/booking");
 const adminRoutes = require("./routes/admin");
+const evaluateRoutes = require("./routes/evaluate");
 
 
 //middlewares
@@ -50,9 +50,9 @@ app.use(express.static('uploads'));
 //route Middlewares
 app.use("/api/homestays",homestayRoutes);
 app.use("/api/rooms",roomRoutes);
-app.use("/api/roomtypes",roomtypeRoutes);
 app.use("/api/bookings",bookingRoutes);
 app.use("/api/admins",adminRoutes);
+app.use("/api/evaluates",evaluateRoutes);
 
 
 app.listen(3001,(req,res)=> {

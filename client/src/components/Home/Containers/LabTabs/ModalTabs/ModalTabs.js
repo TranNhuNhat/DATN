@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Typography, Modal } from "@mui/material";
+import { Typography, Modal } from "@mui/material";
 import Box from "@mui/material/Box";
-import CloseIcon from "@mui/icons-material/Close"
+import CloseIcon from "@mui/icons-material/Close";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
@@ -13,10 +13,10 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import SendIcon from '@mui/icons-material/Send';
 
 import axios from "axios";
 import './ModalTabs.css';
-import dayjs from "dayjs";
 
 
 
@@ -26,7 +26,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 500,
-  height: 600,
+  height: 650,
   bgcolor: "background.paper",
   border: "1px solid #000",
   borderRadius: "5px",
@@ -35,7 +35,7 @@ const style = {
 };
 
 const ModalTabs = (props) => {
-  const {roomId} = props;
+  const { roomId } = props;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true)
@@ -44,12 +44,12 @@ const ModalTabs = (props) => {
     console.log({
       name: homestayName,
       roomtype: roomType,
-      roomNumbers:roomNumber,
+      roomNumbers: roomNumber,
       guestname: guestname,
       gender: gender,
       bookingphone: phoneNumber,
       email: email,
-      bookingdate: bookingdate,
+      bookingdate: bookingDate,
       checkindate: checkindate,
       checkoutdate: checkoutdate,
       numadults: numadults,
@@ -58,12 +58,12 @@ const ModalTabs = (props) => {
     const response = await axios.post(`http://localhost:3001/api/bookings/${roomId}`, {
       name: homestayName,
       roomtype: roomType,
-      roomNumbers:roomNumber,
+      roomNumbers: roomNumber,
       guestname: guestname,
       gender: gender,
       bookingphone: phoneNumber,
       email: email,
-      bookingdate: bookingdate,
+      bookingdate: bookingDate,
       checkindate: checkindate,
       checkoutdate: checkoutdate,
       numadults: numadults,
@@ -73,6 +73,14 @@ const ModalTabs = (props) => {
       console.log("data=>", response.data);
     }
     alert('Gửi yêu cầu đặt phòng thành công');
+    setGender('');
+    setGuestname('');
+    setPhoneNumber('');
+    setEmail('');
+    setCheckindate('');
+    setCheckoutdate('');
+    setNumadults('');
+    setNumchildren('');
   };
 
 
@@ -82,19 +90,17 @@ const ModalTabs = (props) => {
   const { homestayName } = props;
   const { roomType } = props;
   const { roomNumber } = props;
-  // const [roomId,setRoomId] = React.useState(undefined);
-  // const [room, setRoom] = React.useState("");
+  const { bookingDate } = props;
   const [gender, setGender] = React.useState("");
   const [guestname, setGuestname] = React.useState("");
   const [phoneNumber, setPhoneNumber] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [bookingdate, setBookingdate] = React.useState("");
   const [checkindate, setCheckindate] = React.useState("");
   const [checkoutdate, setCheckoutdate] = React.useState("");
   const [numadults, setNumadults] = React.useState("");
   const [numchildren, setNumchildren] = React.useState("");
 
-  
+
 
   const handleChangeGender = (event) => {
     setGender(event.target.value);
@@ -112,16 +118,15 @@ const ModalTabs = (props) => {
     setEmail(event.target.value);
   };
 
-  const handleChangeBookingdate = (date) => {
-    setBookingdate(date);
-  };
 
-  const handleChangeCheckindate = (date) => {
+  const handleChangeCheckindate = (date) => { 
     setCheckindate(date);
+    console.log(date);
   };
 
   const handleChangeCheckoutdate = (date) => {
     setCheckoutdate(date);
+    console.log(date);
   };
 
   const handleChangeNumadults = (event) => {
@@ -132,7 +137,6 @@ const ModalTabs = (props) => {
     setNumchildren(event.target.value);
   };
 
-  const today = dayjs();
 
   return (
     <div>
@@ -147,7 +151,7 @@ const ModalTabs = (props) => {
       >
         <Box component="form" sx={style} >
           <CloseIcon onClick={handleClose} className="icon-close" />
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h7" component="h2">
             Đặt phòng
           </Typography>
 
@@ -223,23 +227,25 @@ const ModalTabs = (props) => {
             <DemoContainer components={["DatePicker"]}>
               <DatePicker
                 label="Ngày đặt"
-                onChange={handleChangeBookingdate}
-                // defaultValue={today}
-                value={bookingdate}
+                defaultValue={bookingDate}
               />
             </DemoContainer>
-
-            <DemoContainer components={["DatePicker"]}>
-              <DatePicker label="Ngày đến"
-                onChange={handleChangeCheckindate}
-                value={checkindate} />
-            </DemoContainer>
-
+          </LocalizationProvider>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={["DatePicker"]}>
               <DatePicker
-                label="Ngày trả phòng"
-                onChange={handleChangeCheckoutdate}
+                label="Ngày đến"
+                value={checkindate}
+                onChange={handleChangeCheckindate}
+              />
+            </DemoContainer>
+          </LocalizationProvider>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={["DatePicker"]}>
+              <DatePicker
+                label="Ngày đặt phòng"
                 value={checkoutdate}
+                onChange={handleChangeCheckoutdate}
               />
             </DemoContainer>
           </LocalizationProvider>
@@ -260,9 +266,10 @@ const ModalTabs = (props) => {
           />
 
 
-          <Button variant="outlined" onClick={handleSubmit}>
-            Gửi yêu cầu đặt phòng
-          </Button>
+          <button className="btn-send-booking" onClick={handleSubmit}>
+            <p className="send">Gửi yêu cầu đặt phòng</p>
+            <SendIcon className="icon-send"/>
+          </button>
 
 
 

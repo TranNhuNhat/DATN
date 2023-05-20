@@ -39,29 +39,83 @@ li {
     margin-bottom: 30px;
 }
 
-.search-bar {
+
+
+.sort-filter {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
+    justify-content: flex-start;
+    padding-bottom: 30px;
 }
 
-#demo-simple-select {
-    max-height: 50px;
-    width: 150px;
+h3 {
+    font-weight: 600;
 }
 
-.btn-search {
-    height: 35px;
-    margin-top: 25px;
-    margin-right: 20px;
+.filter-star {
+    padding-left: 55px;
+}
+
+.select {
+    border: 3px solid #ffb700;
+    padding-top: 5px;
+}
+
+.btn-sort {
+    height: 25px;
+    border: 1px solid dodgerblue;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #fff;
+    color: dodgerblue;
+    margin-right: 5px;
+}
+
+.select-star  {
+    width: 70px;
+    height: 25px;
     border: 1px solid dodgerblue;
     border-radius: 5px;
-    width: 90px;
-    background-color: dodgerblue;
-    color: white;
-    cursor: pointer;
+    color: dodgerblue;
+    outline: dodgerblue;
 }
 
-.btn-search:hover {
-    opacity: 0.8;
+.checkin {
+    border: 3px solid #ffb700;
 }
+
+.checkout {
+    border: 3px solid #ffb700;
+}
+
+/* filter distance */
+
+.filter-distance {
+    padding-left: 55px;
+}
+
+
+.select-distance  {
+    width: 80px;
+    height: 25px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    color: dodgerblue;
+    outline: dodgerblue;
+}
+
+/* sort star */
+.sort-star {
+    
+}
+
+
+.sort-star-ad  {
+    width: 80px;
+    height: 25px;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    color: dodgerblue;
+    outline: dodgerblue;
+}
+
+

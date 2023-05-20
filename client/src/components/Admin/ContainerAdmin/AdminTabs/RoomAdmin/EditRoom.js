@@ -27,17 +27,42 @@ const MenuProps = {
 };
 
 const convens = [
-    'Bếp',
+    'Ra trải giường',
+    'Giường cực dài (> 2 mét)',
+    'Phòng thay quần áo',
+    'Tủ hoặc phòng để quần áo',
+    'Căn hộ riêng trong tòa nhà',
+    'Nước rửa tay',
+    'Điều hòa không khí',
+    'Sàn lát gỗ',
+    'Hệ thống cách âm',
+    'Quạt máy',
+    'Sàn trải thảm',
+    'Tủ lạnh',
+    'Ấm đun nước điện',
+    'Đồ bếp',
+    'Bàn ăn',
+    'Bếp',
+    'Máy giặt',
+    'Sản phẩm lau rửa',
+    'Bếp nhỏ',
+    'Máy sấy quần áo',
+    'Truyền hình trả tiền',
+    'TV màn hình phẳng',
+    'Ổ điện gần giường',
+    'Giá treo quần áo',
+    'Giá phơi quần áo',
+    'Máy điều hòa độc lập cho từng phòng',
     'Ban công',
-    'Máy giặt',
     'Nhìn ra thành phố',
     'Wifi miễn phí',
     'Sân hiên',
     'Bồn tắm',
-    'Điều hòa không khí',
     'Chỗ đỗ xe miễn phí',
     'Lễ tân 24h',
     'Cho phép mang vật nuôi',
+    'Minibar',
+    'Không hút thuốc',
 ];
 
 function getStyles(conven, roomconvenient, theme) {
@@ -61,6 +86,10 @@ const EditRoom = () => {
         maxPeople: "",
         imgRoom: "",
         roomNumbers: "",
+        img1: "",
+        img2: "",
+        img3: "",
+        img4: "",
     });
 
     const [roomconvenient, setRoomconvenient] = React.useState([]);
@@ -105,6 +134,50 @@ const EditRoom = () => {
         };
 
     }
+
+    const handleSelectImage1 = (event) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+    
+        reader.onload = function () {
+          let homestayClone = { ...room };
+          homestayClone['img1'] = reader.result.slice(23);
+          setRoom(homestayClone);
+        };
+      }
+    
+      const handleSelectImage2 = (event) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+    
+        reader.onload = function () {
+          let homestayClone = { ...room };
+          homestayClone['img2'] = reader.result.slice(23);
+          setRoom(homestayClone);
+        };
+      }
+    
+      const handleSelectImage3 = (event) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+    
+        reader.onload = function () {
+          let homestayClone = { ...room };
+          homestayClone['img3'] = reader.result.slice(23);
+          setRoom(homestayClone);
+        };
+      }
+    
+      const handleSelectImage4 = (event) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+    
+        reader.onload = function () {
+          let homestayClone = { ...room };
+          homestayClone['img4'] = reader.result.slice(23);
+          setRoom(homestayClone);
+        };
+      }
 
 
 
@@ -177,6 +250,30 @@ const EditRoom = () => {
                                 onChange={handleChange}
                             />
                         </div>
+
+                        <div>
+                <label>Ảnh 1</label>
+                <input
+                  className='img-sub'
+                  name="img1"
+                  label="Ảnh chi tiết 1"
+                  variant="outlined"
+                  type="file"
+                  onChange={handleSelectImage1}
+                />
+              </div>
+
+              <div>
+                <label>Ảnh 2</label>
+                <input
+                  className='img-sub'
+                  name="img2"
+                  label="Ảnh chi tiết 2"
+                  variant="outlined"
+                  type="file"
+                  onChange={handleSelectImage2}
+                />
+              </div>
                     </div>
 
                     <div className='room-input-right'>
@@ -235,6 +332,33 @@ const EditRoom = () => {
                                 </Select>
                             </FormControl>
                         </div>
+
+
+                        
+
+                        <div>
+                <label>Ảnh 3</label>
+                <input
+                  className='img-sub'
+                  name="img3"
+                  label="Ảnh chi tiết 3"
+                  variant="outlined"
+                  type="file"
+                  onChange={handleSelectImage3}
+                />
+              </div>
+
+              <div>
+                <label>Ảnh 4</label>
+                <input
+                  className='img-sub'
+                  name="img4"
+                  label="Ảnh chi tiết 4"
+                  variant="outlined"
+                  type="file"
+                  onChange={handleSelectImage4}
+                />
+              </div>
                     </div>
 
                 </div>

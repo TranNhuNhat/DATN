@@ -188,6 +188,7 @@ const EditHomestay = () => {
                     label="Quận"
                     value={homestay.district}
                     onChange={handleChange}
+                    name='district'
                   >
                     <MenuItem value={"Ba Đình"}>Ba Đình</MenuItem>
                     <MenuItem value={"Hoàn Kiếm"}>Hoàn Kiếm </MenuItem>

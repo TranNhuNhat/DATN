@@ -61,6 +61,9 @@ const homestaySchema = new mongoose.Schema({
       },
       rooms: {
         type: [String]
+      },
+      evaluates: {
+        type: [String]
       }
 })
 

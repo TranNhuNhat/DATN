@@ -14,7 +14,9 @@ import { useNavigate } from 'react-router-dom';
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import SearchIcon from '@mui/icons-material/Search';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import ModalDeleteHomestay from './ModalDeleteHomestay';
 
 
 
@@ -24,7 +26,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 900,
-  height: 550,
+  height: 580,
   bgcolor: 'background.paper',
   border: '1px solid #1976d2',
   borderRadius: '5px',
@@ -34,7 +36,7 @@ const style = {
 
 
 
-const HomestayAdmin = () => {
+const HomestayAdmin = (props) => {
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -228,9 +230,18 @@ const HomestayAdmin = () => {
 
   console.log("data=>", homestays);
 
-  const handleDeleteHomestay = async (homestay) => {
-    setHomestays(homestays.filter((ht) => ht._id !== homestay._id));
-    await axios.delete(`http://localhost:3001/api/homestays/${homestay._id}`);
+
+
+  // search
+  const [values,setValues] = useState("")
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    return await axios.get(`http://localhost:3001/api/homestays/search/${values}`)
+    .then((res) => setHomestays(res.data))
+  }
+
+  const handleReset = () => {
+    getHomestays();
   }
 
   return (
@@ -258,21 +269,25 @@ const HomestayAdmin = () => {
 
           <div className='box-container'>
             <div className='input-left'>
-              <TextField id="homestay-code"
-                label="Mã homestay"
-                variant="outlined"
-                value={code}
-                onChange={handleChangeCode}
-              />
+              <div className='homestay-text'>
+                <TextField id="homestay-code"
+                  label="Mã homestay"
+                  variant="outlined"
+                  value={code}
+                  onChange={handleChangeCode}
+                />
+              </div>
 
-              <TextField id="homestay-name"
-                label="Tên homestay"
-                variant="outlined"
-                value={name}
-                onChange={handleChangeName}
-              />
+              <div className='homestay-text'>
+                <TextField id="homestay-name"
+                  label="Tên homestay"
+                  variant="outlined"
+                  value={name}
+                  onChange={handleChangeName}
+                />
+              </div>
 
-              <div>
+              <div className='homestay-text'>
                 <label>Ảnh đại diện</label>
                 <input 
                   id="homestay-file"
@@ -284,37 +299,61 @@ const HomestayAdmin = () => {
                 />
               </div>
 
-              <TextField id="homestay-address"
-                label="Địa chỉ"
-                variant="outlined"
-                value={address}
-                onChange={handleChangeAddress}
-              />
+              <div className='homestay-text'>
+                <TextField id="homestay-address"
+                  label="Địa chỉ"
+                  variant="outlined"
+                  value={address}
+                  onChange={handleChangeAddress}
+                />
+              </div>
 
-              <TextField id="homestay-address"
-                label="Khoảng cách"
-                variant="outlined"
-                value={distance}
-                onChange={handleChangeDistance}
-              />
+              <div className='homestay-text'>
+                <TextField id="homestay-address"
+                  label="Khoảng cách"
+                  variant="outlined"
+                  value={distance}
+                  onChange={handleChangeDistance}
+                />
+              </div>
 
-              <TextField id="homestay-address"
-                label="Mô tả"
-                variant="outlined"
-                value={desc}
-                onChange={handleChangeDesc}
-              />
+              <div className='homestay-text-district'>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Quận</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="homestay-district"
+                    label="Quận"
+                    value={district}
+                    onChange={handleChangeDistrict}
+                  >
+                    <MenuItem value={"Ba Đình"}>Ba Đình</MenuItem>
+                    <MenuItem value={"Hoàn Kiếm"}>Hoàn Kiếm </MenuItem>
+                    <MenuItem value={"Tây Hồ"}>Tây Hồ </MenuItem>
+                    <MenuItem value={"Đống Đa"}>Đống Đa</MenuItem>
+                    <MenuItem value={"Thanh Xuân"}>Thanh Xuân</MenuItem>
+                    <MenuItem value={"Hai Bà Trưng"}>Hai Bà Trưng</MenuItem>
+                    <MenuItem value={"Hà Đông"}>Hà Đông</MenuItem>
+                    <MenuItem value={"Cầu Giấy"}>Cầu Giấy</MenuItem>
+                    <MenuItem value={"Long Biên"}>Long Biên</MenuItem>
+                  </Select>
+  
+  
+                </FormControl>
+              </div>
 
-              <TextField id="homestay-address"
-                label="Giá phòng rẻ nhất"
-                variant="outlined"
-                value={cheapestPrice}
-                onChange={handleChangeCheapestPrice}
-              />
+              <div className='homestay-text'>
+                <TextField id="homestay-address"
+                  label="Giá phòng rẻ nhất"
+                  variant="outlined"
+                  value={cheapestPrice}
+                  onChange={handleChangeCheapestPrice}
+                />
+              </div>
             </div>
 
             <div className='input-right'>
-              <div>
+              <div className='homestay-text'>
                 <label>Ảnh chi tiết 1</label>
                 <input
                   label="Ảnh chi tiết 1"
@@ -324,7 +363,7 @@ const HomestayAdmin = () => {
                 />
               </div>
 
-              <div>
+              <div className='homestay-text'>
                 <label>Ảnh chi tiết 2</label>
                 <input
                   label="Ảnh chi tiết 2"
@@ -334,7 +373,7 @@ const HomestayAdmin = () => {
                 />
               </div>
 
-              <div>
+              <div className='homestay-text'>
                 <label>Ảnh chi tiết 3</label>
                 <input
                   label="Ảnh chi tiết 3"
@@ -344,7 +383,7 @@ const HomestayAdmin = () => {
                 />
               </div>
 
-              <div>
+              <div className='homestay-text'>
                 <label>Ảnh chi tiết 4</label>
                 <input
                   label="Ảnh chi tiết 4"
@@ -356,67 +395,85 @@ const HomestayAdmin = () => {
 
 
 
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Quận</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="homestay-district"
-                  label="Quận"
-                  value={district}
-                  onChange={handleChangeDistrict}
-                >
-                  <MenuItem value={"Ba Đình"}>Ba Đình</MenuItem>
-                  <MenuItem value={"Hoàn Kiếm"}>Hoàn Kiếm </MenuItem>
-                  <MenuItem value={"Tây Hồ"}>Tây Hồ </MenuItem>
-                  <MenuItem value={"Đống Đa"}>Đống Đa</MenuItem>
-                  <MenuItem value={"Thanh Xuân"}>Thanh Xuân</MenuItem>
-                  <MenuItem value={"Hai Bà Trưng"}>Hai Bà Trưng</MenuItem>
-                  <MenuItem value={"Hà Đông"}>Hà Đông</MenuItem>
-                  <MenuItem value={"Cầu Giấy"}>Cầu Giấy</MenuItem>
-                  <MenuItem value={"Long Biên"}>Long Biên</MenuItem>
-                </Select>
+              
 
-
-              </FormControl>
-
-              <TextField
-                id="homestay-numroom"
-                label="Liên hệ"
-                variant="outlined"
-                value={phone}
-                onChange={handleChangePhone}
-              />
-
-              <Box
-                sx={{
-                  '& > legend': { mt: 2 },
-                }}
-                className='box-rating'
-              >
-                <Typography component="legend">Đánh giá</Typography>
-                <Rating
-                  name="simple-controlled"
-                  value={rating}
-                  onChange={handleChangeRating}
+              <div className='homestay-text'>
+                <TextField
+                  id="homestay-numroom"
+                  label="Liên hệ"
+                  variant="outlined"
+                  value={phone}
+                  onChange={handleChangePhone}
                 />
-              </Box>
+              </div>
+
+              <div className='homestay-text'>
+                <Box
+                  sx={{
+                    '& > legend': { mt: 2 },
+                  }}
+                  className='box-rating'
+                >
+                  <Typography component="legend">Đánh giá</Typography>
+                  <Rating
+                    name="simple-controlled"
+                    value={rating}
+                    onChange={handleChangeRating}
+                  />
+                </Box>
+              </div>
+
+              <label>Mô tả</label>
+              <div className='homestay-text'>
+                <textarea 
+                  rows={10}
+                  cols={35}
+                  value={desc}
+                  onChange={handleChangeDesc}
+                />
+              </div>
             </div>
           </div>
 
 
-          <div className='btn-submit'>
-            <Button
-              variant="contained"
-              size='medium'
-              onClick={handleAddHomestay}
-            >Thêm</Button>
-          </div>
-
-          <div className='btn-close'>
-            <Button variant="outlined" size='medium' onClick={handleClose}>Đóng</Button>
+          <div className='btn-group'>
+            <div className='btn-submit'>
+              <button
+                className='btn-add-homestay'
+                size='medium'
+                onClick={handleAddHomestay}
+              >Thêm</button>
+            </div>
+  
+            <div className='btn-close'>
+              <Button variant="outlined" size='medium' onClick={handleClose}>Đóng</Button>
+            </div>
           </div>
         </Box>
       </Modal>
+
+
+      {/* search */}
+      <form
+        onSubmit={handleSearch}
+        className='search-form'
+      >
+        <input 
+          type='search'
+          className='form-homestay'
+          placeholder='Nhập mã ,tên homestay,địa chỉ...'
+          value={values}
+          onChange={(e) => setValues(e.target.value)}
+        />
+        <button type='submit' className='btn-search-homestay'>
+        <SearchIcon className='icon-search'/>
+          <p className='search-title'>Tìm kiếm</p>
+        </button>
+        <button onClick={() => handleReset()} className='btn-reset-homestay'>
+        <RefreshIcon className='icon-reset'/>
+          <p className='reset-title'>Tải lại</p>
+        </button>
+      </form>
 
       <div className="table-homestay">
         <table className='table'>
@@ -460,12 +517,9 @@ const HomestayAdmin = () => {
                       onClick={() => navigate(`/admin/editHomestay/${homestay._id}`)}
                     ><EditIcon fontSize='small' className='icon-editH' />
                       <p className='edit-homestay'>Sửa</p></button>
-                    <button
-                      className="btn-delete-homestay"
-                      onClick={() => handleDeleteHomestay(homestay)}
-                    ><DeleteIcon fontSize='small' className='icon-deleteH' />
-                      <p className='delete-homestay'>Xóa</p>
-                    </button>
+                    <ModalDeleteHomestay 
+                      homestayId={homestay._id}
+                    />
                   </td>
                 </tr>
               )
