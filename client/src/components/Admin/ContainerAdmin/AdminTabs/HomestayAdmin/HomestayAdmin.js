@@ -461,7 +461,7 @@ const HomestayAdmin = (props) => {
         <input 
           type='search'
           className='form-homestay'
-          placeholder='Nhập mã ,tên homestay,địa chỉ...'
+          placeholder='Nhập mã ,tên homestay,địa chỉ,quận...'
           value={values}
           onChange={(e) => setValues(e.target.value)}
         />

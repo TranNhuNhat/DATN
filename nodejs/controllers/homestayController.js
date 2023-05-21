@@ -171,6 +171,9 @@ const homestay_searchs  = async (req,res,next)=> {
                 {
                     address: { $regex: req.params.key}
                 },
+                {
+                    district: { $regex: req.params.key}
+                },
             ]
         });
         res.status(200).json(result);

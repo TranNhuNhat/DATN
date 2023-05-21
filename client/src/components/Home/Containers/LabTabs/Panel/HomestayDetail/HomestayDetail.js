@@ -21,6 +21,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import ModalRoomImage from './ModalRoomImage';
+import Rules from './Rules';
 
 
 
@@ -328,6 +329,8 @@ const HomestayDetail = (props) => {
                     ))}
                 </div>
             </div>
+
+            <Rules/>
         </div>
 
     )

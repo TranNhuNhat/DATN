@@ -1,0 +1,88 @@
+.img-payment {
+     width:48;
+     height: 28px;
+     margin-top: 40px;
+}
+
+
+.check-in {
+    display: flex;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 8px lightslategray;
+}
+
+.check-out {
+    display: flex;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 8px lightslategray;
+}
+
+.payment {
+    display: flex;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 8px lightslategray;
+}
+
+.cancle {
+    display: flex;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 8px lightslategray;
+}
+
+.check-in-1 {
+display: flex;
+margin-right: 20px;
+}
+
+.check-out-1 {
+display: flex;
+margin-right: 20px;
+}
+
+.cancle-1 {
+display: flex;
+margin-right: 20px;
+}
+
+.payment-1 {
+display: flex;
+margin-right: 20px;
+}
+
+.rule-p {
+    padding-left: 20px;
+    width: 90px;
+}
+
+.check-in-span {
+    display: grid;
+}
+
+.currency {
+    height: 28px;
+    margin-left: 10px;
+    border: 1px solid forestgreen;
+    width: 60px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    background-color: forestgreen;
+    color: #fff;
+}
+
+.payment-2 {
+    display: inline-block;
+}
+
+.rule {
+    max-width: fit-content;
+    box-shadow: 5px 5px 8px lightslategray;
+    margin-left: 10%;
+}
+
+.check-out-2 {
+    margin-top: 10px;
+}
+
+.cancle-2 {
+    margin-top: 25px;
+}
