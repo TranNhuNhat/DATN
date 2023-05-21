@@ -117,13 +117,13 @@ const DetailPage = (props) => {
                                     <li>Mã homestay:{item.code}</li>
                                     <li>Địa chỉ:{item.address}</li>
                                     <li>Quận:{item.district}</li>
-                                    <li>Số phòng:{item.numroom}</li>
+                                    <li>Liên hệ:{item.phone}</li>
                                 </ul>
                                 <Box
                                     sx={{
                                         '& > legend': { mt: 2 },
                                     }}
-                                    className='box-rating'
+                                    className='box-rating-home'
                                 >
                                     <Typography component="legend" className='text'>Đánh giá</Typography>
                                     <Rating name="read-only" value={item.rating} readOnly ></Rating>

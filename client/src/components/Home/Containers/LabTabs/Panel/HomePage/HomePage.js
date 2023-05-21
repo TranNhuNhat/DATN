@@ -163,9 +163,9 @@ const HomePage = () => {
                                 </ul>
                                 <Box
                                     sx={{
-                                        '& > legend': { mt: 2 },
+                                        '& > legend': { mt: 2},
                                     }}
-                                    className='box-rating'
+                                    className='box-rating-home'
                                 >
                                     <Typography component="legend">Đánh giá</Typography>
                                     <Rating name="read-only" value={item.rating} readOnly ></Rating>

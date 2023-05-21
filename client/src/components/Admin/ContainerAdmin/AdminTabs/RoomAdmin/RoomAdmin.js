@@ -89,6 +89,18 @@ const convens = [
     'Cho phép mang vật nuôi',
     'Minibar',
     'Không hút thuốc',
+    'Vòi sen',
+    'Khăn tắm',
+    'Máy sấy tóc',
+    'Bàn làm việc',
+    'Áo choàng tắm',
+    'Ghế sofa',
+    'Dép',
+    'Cửa an toàn cho trẻ nhỏ',
+    'Các tầng trên đi lên bằng thang máy',
+    'Xe lăn có thể đi đến mọi nơi trong toàn bộ khuôn viên',
+    'Lò vi sóng',
+    'Bể sục',
 ];
 
 function getStyles(conven, roomconvenient, theme) {
