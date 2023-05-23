@@ -336,6 +336,7 @@ const HomestayAdmin = (props) => {
                     <MenuItem value={"Hà Đông"}>Hà Đông</MenuItem>
                     <MenuItem value={"Cầu Giấy"}>Cầu Giấy</MenuItem>
                     <MenuItem value={"Long Biên"}>Long Biên</MenuItem>
+                    <MenuItem value={"Hoàng Mai"}>Hoàng Mai</MenuItem>
                   </Select>
   
   
