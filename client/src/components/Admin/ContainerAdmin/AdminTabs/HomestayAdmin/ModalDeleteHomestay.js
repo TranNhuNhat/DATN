@@ -33,6 +33,7 @@ const ModalDeleteHomestay = (props) => {
       console.log(res);
       alert('Đã xóa homestay thành công !');
       setOpen(false);
+      getHomestays();
     })
     .catch(error => {
       console.log(error);
@@ -43,7 +44,7 @@ const ModalDeleteHomestay = (props) => {
 
     useEffect(() => {
         getHomestays();
-    }, [code]);
+    }, []);
 
     const getHomestays = async () => {
         const response = await axios.get("http://localhost:3001/api/homestays");
